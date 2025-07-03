@@ -2,34 +2,27 @@ import autos from '../../data/autos';
 import Item from '../Item/Item';
 
 const CategoriasSection = () => {
-  const autos0km = autos.filter(auto => auto.categoria === '0km');
-  const autosUsados = autos.filter(auto => auto.categoria === 'usado');
-  const autosRecien = autos.filter(auto => auto.categoria === 'recien_llegado');
+  // Extraemos tipos únicos
+  const tiposUnicos = [...new Set(autos.map(auto => auto.tipo))];
 
   return (
     <div>
-      <h2>Autos 0km</h2>
-      <div style={{ display: 'flex', overflowX: 'auto', gap: '10px', marginBottom: 30 }}>
-        {autos0km.map(auto => (
-          <Item key={auto.id} {...auto} />
-        ))}
-      </div>
-
-      <h2>Autos Usados</h2>
-      <div style={{ display: 'flex', overflowX: 'auto', gap: '10px', marginBottom: 30 }}>
-        {autosUsados.map(auto => (
-          <Item key={auto.id} {...auto} />
-        ))}
-      </div>
-
-      <h2>Recién Llegados</h2>
-      <div style={{ display: 'flex', overflowX: 'auto', gap: '10px', marginBottom: 30 }}>
-        {autosRecien.map(auto => (
-          <Item key={auto.id} {...auto} />
-        ))}
-      </div>
+      {tiposUnicos.map(tipo => {
+        const autosPorTipo = autos.filter(auto => auto.tipo === tipo);
+        return (
+          <div key={tipo} style={{ marginBottom: 40 }}>
+            <h2 className="text-2xl font-bold mb-4">{tipo}</h2>
+            <div style={{ display: 'flex', overflowX: 'auto', gap: '10px', paddingBottom: 10 }}>
+              {autosPorTipo.map(auto => (
+                <Item key={auto.id} {...auto} />
+              ))}
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 };
 
 export default CategoriasSection;
+

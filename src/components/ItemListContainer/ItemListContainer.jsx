@@ -16,6 +16,12 @@ const ItemListContainer = () => {
     setFiltros({ ...filtros, [e.target.name]: e.target.value });
   };
 
+  // Extraemos marcas únicas de autos
+  const marcasUnicas = [...new Set(autos.map(auto => auto.marca))];
+
+  // Extraemos transmisiones únicas de autos
+  const transmisionesUnicas = [...new Set(autos.map(auto => auto.transmision))];
+
   const autosFiltrados = autos.filter(auto => {
     const coincideMarca = filtros.marca === '' || auto.marca === filtros.marca;
     const coincideTransmision = filtros.transmision === '' || auto.transmision === filtros.transmision;
@@ -31,17 +37,32 @@ const ItemListContainer = () => {
       <h2 className="text-2xl font-bold mb-4">Catálogo de Autos</h2>
 
       <div className="flex flex-wrap gap-4 mb-6">
-        <select name="marca" value={filtros.marca} onChange={handleChange} className="border rounded px-3 py-2">
+        <select
+          name="marca"
+          value={filtros.marca}
+          onChange={handleChange}
+          className="border rounded px-3 py-2"
+        >
           <option value="">Todas las marcas</option>
-          <option value="Toyota">Toyota</option>
-          <option value="Volkswagen">Volkswagen</option>
-          <option value="Ford">Ford</option>
+          {marcasUnicas.map((marca) => (
+            <option key={marca} value={marca}>
+              {marca}
+            </option>
+          ))}
         </select>
 
-        <select name="transmision" value={filtros.transmision} onChange={handleChange} className="border rounded px-3 py-2">
+        <select
+          name="transmision"
+          value={filtros.transmision}
+          onChange={handleChange}
+          className="border rounded px-3 py-2"
+        >
           <option value="">Todas las transmisiones</option>
-          <option value="Manual">Manual</option>
-          <option value="Automática">Automática</option>
+          {transmisionesUnicas.map((transmision) => (
+            <option key={transmision} value={transmision}>
+              {transmision}
+            </option>
+          ))}
         </select>
 
         <input
