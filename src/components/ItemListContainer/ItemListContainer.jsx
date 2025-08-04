@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import autos from '../../data/autos';
 import ItemList from '../ItemList/ItemList';
+import PulseLoader from 'react-spinners/PulseLoader';
 
 const ItemListContainer = () => {
   const [filtros, setFiltros] = useState({
@@ -12,25 +13,39 @@ const ItemListContainer = () => {
     precioHasta: ''
   });
 
+  const [autosFiltrados, setAutosFiltrados] = useState([]);
+  const [cargando, setCargando] = useState(true);
+
   const handleChange = (e) => {
     setFiltros({ ...filtros, [e.target.name]: e.target.value });
   };
 
-  // Extraemos marcas únicas de autos
+  // Extraer marcas y transmisiones únicas
   const marcasUnicas = [...new Set(autos.map(auto => auto.marca))];
-
-  // Extraemos transmisiones únicas de autos
   const transmisionesUnicas = [...new Set(autos.map(auto => auto.transmision))];
 
-  const autosFiltrados = autos.filter(auto => {
-    const coincideMarca = filtros.marca === '' || auto.marca === filtros.marca;
-    const coincideTransmision = filtros.transmision === '' || auto.transmision === filtros.transmision;
-    const coincideAñoDesde = filtros.añoDesde === '' || auto.año >= parseInt(filtros.añoDesde);
-    const coincideAñoHasta = filtros.añoHasta === '' || auto.año <= parseInt(filtros.añoHasta);
-    const coincidePrecioDesde = filtros.precioDesde === '' || auto.precio >= parseInt(filtros.precioDesde);
-    const coincidePrecioHasta = filtros.precioHasta === '' || auto.precio <= parseInt(filtros.precioHasta);
-    return coincideMarca && coincideTransmision && coincideAñoDesde && coincideAñoHasta && coincidePrecioDesde && coincidePrecioHasta;
-  });
+  useEffect(() => {
+    setCargando(true);
+
+    new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(autos);
+      }, 1000); // 1 segundo de delay
+    }).then((data) => {
+      const filtrados = data.filter(auto => {
+        const coincideMarca = filtros.marca === '' || auto.marca === filtros.marca;
+        const coincideTransmision = filtros.transmision === '' || auto.transmision === filtros.transmision;
+        const coincideAñoDesde = filtros.añoDesde === '' || auto.año >= parseInt(filtros.añoDesde);
+        const coincideAñoHasta = filtros.añoHasta === '' || auto.año <= parseInt(filtros.añoHasta);
+        const coincidePrecioDesde = filtros.precioDesde === '' || auto.precio >= parseInt(filtros.precioDesde);
+        const coincidePrecioHasta = filtros.precioHasta === '' || auto.precio <= parseInt(filtros.precioHasta);
+        return coincideMarca && coincideTransmision && coincideAñoDesde && coincideAñoHasta && coincidePrecioDesde && coincidePrecioHasta;
+      });
+
+      setAutosFiltrados(filtrados);
+      setCargando(false);
+    });
+  }, [filtros]);
 
   return (
     <div className="px-4 py-6">
@@ -45,9 +60,7 @@ const ItemListContainer = () => {
         >
           <option value="">Todas las marcas</option>
           {marcasUnicas.map((marca) => (
-            <option key={marca} value={marca}>
-              {marca}
-            </option>
+            <option key={marca} value={marca}>{marca}</option>
           ))}
         </select>
 
@@ -59,9 +72,7 @@ const ItemListContainer = () => {
         >
           <option value="">Todas las transmisiones</option>
           {transmisionesUnicas.map((transmision) => (
-            <option key={transmision} value={transmision}>
-              {transmision}
-            </option>
+            <option key={transmision} value={transmision}>{transmision}</option>
           ))}
         </select>
 
@@ -102,7 +113,13 @@ const ItemListContainer = () => {
         />
       </div>
 
-      <ItemList autos={autosFiltrados} />
+      {cargando ? (
+       <div className="h-[60vh] flex justify-center items-start pt-24">
+          <PulseLoader color="#2563EB" size={30} />
+       </div>
+      ) : (
+        <ItemList autos={autosFiltrados} />
+      )}
     </div>
   );
 };
