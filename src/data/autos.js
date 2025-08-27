@@ -15,7 +15,7 @@ const autos = [
     pasajeros: 5,
     stock: 2,
     tipo: 'Hatchback',
-    imagen: '/src/assets/autosFotos/Volkswagen/GolG32004.jpg'
+    imagen: '/autosFotos/Volkswagen/GolG32004.jpg'
   },
   {
     marca: 'Ford',
@@ -33,7 +33,7 @@ const autos = [
     pasajeros: 5,
     stock: 1,
     tipo: 'Sedan',
-    imagen: '/src/assets/autosFotos/Ford/Focus2019.jpg'
+    imagen: '/autosFotos/Ford/Focus2019.jpg'
   },
   {
     marca: 'Hyundai',
@@ -51,7 +51,7 @@ const autos = [
     pasajeros: 5,
     stock: 5,
     tipo: 'SUV',
-    imagen: '/src/assets/autosFotos/Hyundai/Tucson2021.jpg'
+    imagen: '/autosFotos/Hyundai/Tucson2021.jpg'
   },
   {
     marca: 'Chevrolet',
@@ -69,7 +69,7 @@ const autos = [
     pasajeros: 5,
     stock: 4,
     tipo: 'Hatchback',
-    imagen: '/src/assets/autosFotos/Chevrolet/Onix2020.jpg'
+    imagen: '/autosFotos/Chevrolet/Onix2020.jpg'
   },
   {
     marca: 'Nissan',
@@ -87,7 +87,7 @@ const autos = [
     pasajeros: 5,
     stock: 5,
     tipo: 'Sedan',
-    imagen: '/src/assets/autosFotos/Nissan/Sentra2018.jpg'
+    imagen: '/autosFotos/Nissan/Sentra2018.jpg'
   },
   {
     marca: 'Volkswagen',
@@ -105,7 +105,7 @@ const autos = [
     pasajeros: 5,
     stock: 1,
     tipo: 'Hatchback',
-    imagen: '/src/assets/autosFotos/Volkswagen/Polo2022.jpg'
+    imagen: '/autosFotos/Volkswagen/golG32004.jpg'
   },
   {
     marca: 'Fiat',
@@ -123,7 +123,7 @@ const autos = [
     pasajeros: 5,
     stock: 2,
     tipo: 'Sedan',
-    imagen: '/src/assets/autosFotos/Fiat/Cronos2019.jpg'
+    imagen: '/autosFotos/Fiat/Cronos2019.jpg'
   },
   {
     marca: 'Renault',
@@ -141,7 +141,7 @@ const autos = [
     pasajeros: 5,
     stock: 3,
     tipo: 'Hatchback',
-    imagen: '/src/assets/autosFotos/Renault/Sandero2020.jpg'
+    imagen: '/autosFotos/Renault/Sandero2020.jpg'
   },
   {
     marca: 'Mazda',
@@ -159,7 +159,7 @@ const autos = [
     pasajeros: 5,
     stock: 4,
     tipo: 'Sedan',
-    imagen: '/src/assets/autosFotos/Mazda/Mazda3-2021.jpg'
+    imagen: '/autosFotos/Mazda/Mazda3-2021.jpg'
   }
 ];
 

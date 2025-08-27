@@ -16,11 +16,18 @@ const Cart = () => {
     setBuyer({ ...buyer, [e.target.name]: e.target.value });
   };
 
-  const handleConfirmPurchase = async (e) => {
+ const handleConfirmPurchase = async (e) => {
   e.preventDefault();
-  if (!buyer.nombre || !buyer.email || !buyer.telefono) return alert("Completa todos los campos");
 
-     const outOfStock = cartItems.some(auto => auto.quantity > (auto.stock || 0));
+  if (!buyer.nombre || !buyer.email || !buyer.telefono) {
+    return alert("Completa todos los campos");
+  }
+
+  // Validación de stock
+  const outOfStock = cartItems.some(
+    (auto) => Number(auto.quantity) > Number(auto.stock)
+  );
+
   if (outOfStock) {
     return alert("Uno o más productos no tienen stock suficiente.");
   }
@@ -28,10 +35,14 @@ const Cart = () => {
   const order = {
     buyer,
     items: cartItems.map(({ id, marca, modelo, precio, quantity }) => ({
-      id, marca, modelo, precio, quantity
+      id,
+      marca,
+      modelo,
+      precio,
+      quantity,
     })),
     total,
-    date: Timestamp.fromDate(new Date())
+    date: Timestamp.fromDate(new Date()),
   };
 
   try {
@@ -41,11 +52,13 @@ const Cart = () => {
 
     // Actualizar stock de cada producto
     for (const auto of cartItems) {
-  const productRef = doc(db, "cars", auto.id);
-  const newStock = auto.stock !== undefined ? Math.max(0, auto.stock - auto.quantity) : 0;
-  await updateDoc(productRef, { stock: newStock });
-}
-
+      const productRef = doc(db, "cars", auto.id);
+      const newStock =
+        auto.stock !== undefined
+          ? Math.max(0, Number(auto.stock) - Number(auto.quantity))
+          : 0;
+      await updateDoc(productRef, { stock: newStock });
+    }
 
     clearCart();
   } catch (error) {

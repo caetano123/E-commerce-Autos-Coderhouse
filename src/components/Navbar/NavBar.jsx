@@ -5,7 +5,7 @@ const NavBar = () => {
   return (
     <nav className="bg-blue-900 text-white px-6 py-4 shadow-md flex items-center justify-between">
       <div className="flex items-center gap-3">
-        <img src="/src/assets/logo-shopping-de-autos.svg" alt="Logo" className="w-22 h-18 ml-2" />
+        <img src="/logo-shopping-de-autos.svg" alt="Logo" className="w-22 h-18 ml-2" />
         
       </div>
 
