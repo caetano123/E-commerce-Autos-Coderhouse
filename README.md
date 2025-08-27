@@ -27,7 +27,7 @@ El objetivo principal es practicar patrones de React, hooks, manejo de estado gl
 ---
 
 ## Estructura de Carpetas
-
+```text
 src/
 ├── components/
 │ ├── Cart/
@@ -38,43 +38,65 @@ src/
 │ │ ├── CartContext.jsx
 │ │ └── CartProvider.jsx
 │ ├── Item/
-│ │ ├── Item.jsx
+│ │ └── Item.jsx
 │ ├── ItemCount/
-│ │ ├── ItemCount.jsx
+│ │ └── ItemCount.jsx
 │ ├── ItemDetail/
-│ │ ├── ItemDetail.jsx
+│ │ └── ItemDetail.jsx
 │ ├── ItemDetailContainer/
-│ │ ├── ItemDetailContainer.jsx
+│ │ └── ItemDetailContainer.jsx
 │ ├── ItemList/
-│ │ ├── ItemList.jsx
+│ │ └── ItemList.jsx
 │ ├── ItemListContainer/
-│ │ ├── ItemListContainer.jsx
+│ │ └── ItemListContainer.jsx
 │ ├── Layouts/
 │ │ └── Layout.jsx
 │ └── Navbar/
 │ └── NavBar.jsx
-└── pages/
-│  └── Cart.js
-│  └── Contact.jsx
-│  └── Vehicles.jsx
-└── scripts/
-│  └── uploadAutos.js
-└── firebase/
-│   └── config.js
+├── pages/
+│ ├── Cart.jsx
+│ ├── Contact.jsx
+│ └── Vehicles.jsx
+├── scripts/
+│ └── uploadAutos.js
+├── firebase/
+│ └── config.js
 ├── main.jsx
 ├── Routes.jsx
 ├── index.css
-├── Home.jsx
-
-
+└── Home.jsx
+```
 ---
 
 ## Configuración y Ejecución del Proyecto
 
 1. Clonar el repositorio:
 ```bash
-git clone https://github.com/tu_usuario/ProyectoFinal-Elizalde.git
-cd ProyectoFinal-Elizalde
+git https://github.com/caetano123/E-commerce-Autos-Coderhouse.git
 
 2. Instalar dependencias:
 npm install
+
+3.Crear archivo de variables de entorno:
+
+Renombrar el archivo .env.example a .env y completar con tus credenciales de Firebase:
+
+VITE_FIREBASE_API_KEY=tu_api_key
+VITE_FIREBASE_AUTH_DOMAIN=tu_auth_domain
+VITE_FIREBASE_PROJECT_ID=tu_project_id
+VITE_FIREBASE_STORAGE_BUCKET=tu_storage_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=tu_messaging_sender_id
+VITE_FIREBASE_APP_ID=tu_app_id
+VITE_FIREBASE_MEASUREMENT_ID=tu_measurement_id
+
+
+⚠️ Nunca subas tu archivo .env con credenciales reales a GitHub. Solo sube .env.example.
+
+4.Ejecutar la aplicación en modo desarrollo:
+
+npm run dev
+
+
+5.Abrir el proyecto en el navegador:
+
+Vite normalmente lo servirá en http://localhost:5173
