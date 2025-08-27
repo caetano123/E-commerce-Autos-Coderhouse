@@ -1,24 +1,5 @@
 const autos = [
   {
-    id: 1,
-    marca: 'Toyota',
-    modelo: 'Corolla',
-    motor: '1.8 VVT-i',
-    año: 2022,
-    precio: 20500,
-    kilometros: 0,
-    combustible: 'Nafta',
-    transmision: 'Automática',
-    potencia: 140,
-    traccion: 'Delantera',
-    puertas: 4,
-    color: 'Blanco',
-    pasajeros: 5,
-    tipo: 'Sedan',
-    imagen: '/src/assets/autosFotos/Toyota/Corolla2022.png'
-  },
-  {
-    id: 2,
     marca: 'Volkswagen',
     modelo: 'Gol G3',
     motor: '1.6',
@@ -32,11 +13,11 @@ const autos = [
     puertas: 5,
     color: 'Rojo',
     pasajeros: 5,
+    stock: 2,
     tipo: 'Hatchback',
     imagen: '/src/assets/autosFotos/Volkswagen/GolG32004.jpg'
   },
   {
-    id: 3,
     marca: 'Ford',
     modelo: 'Focus',
     motor: '2.0 EcoBoost',
@@ -50,11 +31,11 @@ const autos = [
     puertas: 4,
     color: 'Negro',
     pasajeros: 5,
+    stock: 1,
     tipo: 'Sedan',
     imagen: '/src/assets/autosFotos/Ford/Focus2019.jpg'
   },
   {
-    id: 4,
     marca: 'Hyundai',
     modelo: 'Tucson',
     motor: '2.0',
@@ -68,11 +49,11 @@ const autos = [
     puertas: 5,
     color: 'Gris',
     pasajeros: 5,
+    stock: 5,
     tipo: 'SUV',
     imagen: '/src/assets/autosFotos/Hyundai/Tucson2021.jpg'
   },
   {
-    id: 5,
     marca: 'Chevrolet',
     modelo: 'Onix',
     motor: '1.4',
@@ -86,11 +67,11 @@ const autos = [
     puertas: 4,
     color: 'Blanco',
     pasajeros: 5,
+    stock: 4,
     tipo: 'Hatchback',
     imagen: '/src/assets/autosFotos/Chevrolet/Onix2020.jpg'
   },
   {
-    id: 6,
     marca: 'Nissan',
     modelo: 'Sentra',
     motor: '1.8',
@@ -104,11 +85,11 @@ const autos = [
     puertas: 4,
     color: 'Azul',
     pasajeros: 5,
+    stock: 5,
     tipo: 'Sedan',
     imagen: '/src/assets/autosFotos/Nissan/Sentra2018.jpg'
   },
   {
-    id: 7,
     marca: 'Volkswagen',
     modelo: 'Polo',
     motor: '1.6',
@@ -122,11 +103,11 @@ const autos = [
     puertas: 4,
     color: 'Negro',
     pasajeros: 5,
+    stock: 1,
     tipo: 'Hatchback',
     imagen: '/src/assets/autosFotos/Volkswagen/Polo2022.jpg'
   },
   {
-    id: 8,
     marca: 'Fiat',
     modelo: 'Cronos',
     motor: '1.3',
@@ -140,11 +121,11 @@ const autos = [
     puertas: 4,
     color: 'Rojo',
     pasajeros: 5,
+    stock: 2,
     tipo: 'Sedan',
     imagen: '/src/assets/autosFotos/Fiat/Cronos2019.jpg'
   },
   {
-    id: 9,
     marca: 'Renault',
     modelo: 'Sandero',
     motor: '1.6',
@@ -158,11 +139,11 @@ const autos = [
     puertas: 5,
     color: 'Gris',
     pasajeros: 5,
+    stock: 3,
     tipo: 'Hatchback',
     imagen: '/src/assets/autosFotos/Renault/Sandero2020.jpg'
   },
   {
-    id: 10,
     marca: 'Mazda',
     modelo: '3',
     motor: '2.0',
@@ -176,6 +157,7 @@ const autos = [
     puertas: 4,
     color: 'Blanco',
     pasajeros: 5,
+    stock: 4,
     tipo: 'Sedan',
     imagen: '/src/assets/autosFotos/Mazda/Mazda3-2021.jpg'
   }

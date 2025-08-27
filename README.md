@@ -1,12 +1,80 @@
-# React + Vite
+# ProyectoFinal-Elizalde
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción del Proyecto
+**ProyectoFinal-Elizalde** es una web app de e-commerce desarrollada en **React** que permite a los usuarios explorar, seleccionar y comprar autos. La aplicación implementa un carrito de compras, un checkout con formulario de comprador, validación de stock y registro de órdenes en **Firebase Firestore**.  
+El objetivo principal es practicar patrones de React, hooks, manejo de estado global con Context, y la integración con un servicio en la nube para almacenar datos persistentes.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Funcionalidades
+- Listado dinámico de productos (autos) y vista de detalle.
+- Agregar, eliminar y vaciar productos del carrito.
+- Selección de cantidad con validación de stock.
+- Checkout con formulario de datos del comprador.
+- Generación de orden en Firestore y devolución de ID al usuario.
+- Actualización automática del stock de productos.
+- Manejo de casos de productos sin stock y mensajes informativos.
+- Navegación SPA utilizando **React Router**.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tecnologías Usadas
+- **Front-end**: React, React Router, React Hooks, Context API
+- **Estilos**: TailwindCSS
+- **Base de datos**: Firebase Firestore
+- **Herramientas adicionales**: React Icons, Vite
+
+---
+
+## Estructura de Carpetas
+
+src/
+├── components/
+│ ├── Cart/
+│ │ └── CartWidget.jsx
+│ ├── CategoriasSection/
+│ │ └── CategoriasSection.jsx
+│ ├── Context/
+│ │ ├── CartContext.jsx
+│ │ └── CartProvider.jsx
+│ ├── Item/
+│ │ ├── Item.jsx
+│ ├── ItemCount/
+│ │ ├── ItemCount.jsx
+│ ├── ItemDetail/
+│ │ ├── ItemDetail.jsx
+│ ├── ItemDetailContainer/
+│ │ ├── ItemDetailContainer.jsx
+│ ├── ItemList/
+│ │ ├── ItemList.jsx
+│ ├── ItemListContainer/
+│ │ ├── ItemListContainer.jsx
+│ ├── Layouts/
+│ │ └── Layout.jsx
+│ └── Navbar/
+│ └── NavBar.jsx
+└── pages/
+│  └── Cart.js
+│  └── Contact.jsx
+│  └── Vehicles.jsx
+└── scripts/
+│  └── uploadAutos.js
+└── firebase/
+│   └── config.js
+├── main.jsx
+├── Routes.jsx
+├── index.css
+├── Home.jsx
+
+
+---
+
+## Configuración y Ejecución del Proyecto
+
+1. Clonar el repositorio:
+```bash
+git clone https://github.com/tu_usuario/ProyectoFinal-Elizalde.git
+cd ProyectoFinal-Elizalde
+
+2. Instalar dependencias:
+npm install

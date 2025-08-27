@@ -12,13 +12,25 @@ export const CartProvider = ({ children }) => {
   }, [cartItems]);
 
   const addToCart = (item) => {
-    setCartItems((prev) => {
-      if (prev.find(cartItem => cartItem.id === item.id)) {
+  setCartItems((prev) => {
+    const existingItem = prev.find(cartItem => cartItem.id === item.id);
+    if (existingItem) {
+      const newQuantity = existingItem.quantity + (item.quantity || 1);
+      if (newQuantity > item.stock) {
+        alert("No hay suficiente stock disponible");
         return prev;
       }
-      return [...prev, item];
-    });
-  };
+      return prev.map(cartItem =>
+        cartItem.id === item.id ? { ...cartItem, quantity: newQuantity } : cartItem
+      );
+    }
+    if ((item.quantity || 1) > item.stock) {
+      alert("No hay suficiente stock disponible");
+      return prev;
+    }
+    return [...prev, item];
+  });
+};
 
   const removeFromCart = (idToRemove) => {
     setCartItems((prev) => prev.filter(item => item.id !== idToRemove));
